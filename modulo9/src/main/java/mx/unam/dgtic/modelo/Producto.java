@@ -37,6 +37,14 @@ public class Producto implements Serializable {
 		return idProducto;
 	}
 
+	public List<ProductoEntity> getProductos() {
+		return productos.getProductos();
+	}
+
+	public void setProductos(Productos productos) {
+		this.productos = productos;
+	}
+
 	public void setIdProducto(int idProducto) {
 		this.idProducto = idProducto;
 	}
@@ -111,6 +119,7 @@ public class Producto implements Serializable {
 	
 	public String agregar() {
 		productos.agregar(this);
+		System.out.println(productos.getProductos().size());
 		return "listaProductos";
 	}
 

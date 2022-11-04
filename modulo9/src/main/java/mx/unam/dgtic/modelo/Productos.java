@@ -1,9 +1,16 @@
 package mx.unam.dgtic.modelo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Productos {
+import jakarta.enterprise.context.SessionScoped;
+@SessionScoped
+public class Productos implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private List<ProductoEntity> productos;
 
 	public Productos() {

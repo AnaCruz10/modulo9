@@ -25,10 +25,12 @@ public class Producto implements Serializable {
 	private int stock;
 	private int pieza;
 	
-	private List<Producto> productos = new ArrayList<Producto>();
-
+	//private List<Producto> productos = new ArrayList<Producto>();
+	private Productos productos;
+	
 	public Producto() {
 		// TODO Auto-generated constructor stub
+		productos = new Productos();
 	}
 
 	public int getIdProducto() {
@@ -107,28 +109,12 @@ public class Producto implements Serializable {
 
 	
 	
-	public void agregar() {
-		Producto producto = new Producto();
-		producto.setIdProducto(idProducto);
-		producto.setCodigoBarras(codigoBarras);
-		producto.setNombre(nombre);
-		producto.setMarca(marca);
-		producto.setPrecioPublico(precioPublico);
-		producto.setEstatus(estatus);
-		producto.setStock(stock);
-		producto.setPieza(pieza);
-		productos.add(producto);
-		System.out.println("Productos totales: "+productos.size());
-		
+	public String agregar() {
+		productos.agregar(this);
+		return "listaProductos";
 	}
 
-	public List<Producto> getProductos() {
-		return productos;
-	}
-
-	public void setProductos(List<Producto> productos) {
-		this.productos = productos;
-	}
+	
 
 	@Override
 	public String toString() {

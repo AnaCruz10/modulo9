@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Productos {
-	private List<ProductoEntity> productos = new ArrayList<>();
+	private List<ProductoEntity> productos;
 
 	public Productos() {
 		productos = new ArrayList<>();
@@ -27,5 +27,11 @@ public class Productos {
 	public List<ProductoEntity> getProductos(){
 		return productos;
 	}
+
+	public void setProductos(List<ProductoEntity> productos) {
+		this.productos = productos;
+	}
+	
+	
 
 }

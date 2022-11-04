@@ -24,6 +24,7 @@ public class Productos implements Serializable {
 		pe.setNombre(p.getNombre());
 		pe.setMarca(p.getMarca());
 		pe.setPrecioPublico(p.getPrecioCompra());
+		pe.setPrecioCompra(p.getPrecioCompra());
 		pe.setEstatus(p.getEstatus());
 		pe.setStock(p.getEstatus());
 		pe.setPieza(p.getPieza());

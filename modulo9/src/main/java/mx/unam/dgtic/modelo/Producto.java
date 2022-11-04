@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.enterprise.context.SessionScoped;
+import jakarta.faces.event.AbortProcessingException;
+import jakarta.faces.event.AjaxBehaviorEvent;
 import jakarta.inject.Named;
 
 @Named
@@ -117,10 +119,11 @@ public class Producto implements Serializable {
 
 	
 	
-	public String agregar() {
+	public void agregar(AjaxBehaviorEvent event)
+            throws AbortProcessingException  {
 		productos.agregar(this);
-		System.out.println(productos.getProductos().size());
-		return "listaProductos";
+		System.out.println("***********"+productos.getProductos().size());
+		
 	}
 
 	

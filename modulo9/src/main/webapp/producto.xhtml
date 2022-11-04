@@ -3,17 +3,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://xmlns.jcp.org/jsf/html">
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
 	<title>Producto</title>
 </h:head>
 <h:body>
 	<h2 style="text-align: center">Registro de producto</h2>
+	<div class="col-6">
 	<h:form>
 
 		<p style="text-align: center">
 			<label>ID Producto:</label>
-			<h:inputText id="idProducto"  value="#{producto.nombre}"/>
+			<h:inputText id="idProducto"  value="#{producto.idProducto}"/>
 		</p>
 		<p style="text-align: center">
 			<label>Codigo Barras:</label>
@@ -42,9 +44,90 @@
 			<h:inputText id="pieza" value="#{producto.pieza}" />
 			<br />
 			
-			<h:commandButton id="agregar" value="Agregar" action="#{producto.agregar}" />
+			<h:commandButton id="agregar" value="Agregar">
+			<f:ajax execute="@all" listener="#{producto.agregar}" render="productos"/>
+			</h:commandButton>
 		</p>
 	</h:form>
-
+	
+	
+	</div>
+	<div class="col-6">
+	
+	<h:dataTable style="text-align: center"
+						 id="productos"
+                         value="#{producto.productos}"
+                         var="pro"
+                         border="1" 
+                         summary="Lista de Productos" >
+                 <h:column>
+                    <f:facet name="header">
+                        <b>idProducto</b>
+                    </f:facet>
+                    <h:outputText value="#{pro.idProducto}" />
+      
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <b>CodigoBarras</b>
+                    </f:facet>
+                    <h:outputText value="#{pro.codigoBarras}" />
+      
+                </h:column>                
+                <h:column>
+                    <f:facet name="header">
+                        <b>Nombre</b>
+                    </f:facet>
+                    <h:outputText value="#{pro.nombre}" />
+                
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <b>Marca</b>
+                    </f:facet>
+                    <h:outputText value="#{pro.marca}" />
+      
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <b>Precio Publico</b>
+                    </f:facet>
+                    <h:outputText value="#{pro.precioPublico}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <b>Precio Compra</b>
+                    </f:facet>
+                    <h:outputText value="#{pro.precioCompra}" />
+      
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <b>Estatus</b>
+                    </f:facet>
+                    <h:outputText value="#{pro.estatus}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <b>Stock</b>
+                    </f:facet>
+                    <h:outputText value="#{pro.stock}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <b>Pieza</b>
+                    </f:facet>
+                    <h:outputText value="#{pro.pieza}" />
+      
+                </h:column>
+                
+                
+                
+               
+            </h:dataTable>
+         <h:commandLink id="index" value="regresar" 
+            action="index" />
+	</div>
+	
 </h:body>
 </html>

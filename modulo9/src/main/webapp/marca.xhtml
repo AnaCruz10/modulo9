@@ -10,6 +10,38 @@
 </h:head>
 <h:body>
 	<h2 style="text-align: center">Lista Marca</h2>
+	
+	<h:form>
+
+		<p style="text-align: center">
+			<label>ID Marca:</label>
+			<h:inputText id="idMarca"  value="#{marca.idMarca}"/>
+		</p>
+		<p style="text-align: center">
+			<label>Nombre:</label>
+			<h:inputText id="nombre" value="#{marca.nombre}" />
+		</p>
+		<p style="text-align: center">
+			<label>ID Categoria:</label>
+			<h:inputText id="categoria" value="#{marca.idCategoria}"/>
+		</p><p style="text-align: center">
+			<label>Descripción:</label>
+			<h:inputText id="descripcion" value="#{marca.descripcion}" />
+		</p><p style="text-align: center">
+			<label>FechaRegistro:</label>
+			<h:inputText id="fechaRegistro" value="#{marca.fechaRegistro}" />
+		</p><p style="text-align: center">
+			<label>Estatus marca:</label>
+			<h:inputText id="status" value="#{marca.status}" />
+		
+			<br />
+			
+			<h:commandButton id="agregar" value="Agregar">
+			<f:ajax execute="@all" listener="#{marca.agregar}" render="marcas"/>
+			</h:commandButton>
+		</p>
+	</h:form>
+	
 	<h:dataTable id="marcas" value="#{marca.marcas}" var="ma"
 		border="1" summary="Lista de Marcas">
 		<h:column>

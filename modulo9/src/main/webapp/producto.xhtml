@@ -54,7 +54,7 @@
 	</div>
 	<div class="col-6">
 	
-	<h:dataTable style="text-align: center"
+	<h:dataTable 
 						 id="productos"
                          value="#{producto.productos}"
                          var="pro"
@@ -120,13 +120,9 @@
                     <h:outputText value="#{pro.pieza}" />
       
                 </h:column>
-                
-                
-                
                
             </h:dataTable>
-         <h:commandLink id="index" value="regresar" 
-            action="index" />
+         
 	</div>
 	
 </h:body>
